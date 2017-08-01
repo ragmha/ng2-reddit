@@ -18,9 +18,14 @@ export class AppComponent {
   }
 
   addArticle(title: HTMLInputElement, link: HTMLInputElement): boolean {
+    if (!title.value && !link.value) {
+      return;
+    }
+
     this.articles.push(new Article(title.value, link.value, 0));
     title.value = '';
     link.value = '';
+
     return false;
   }
 
